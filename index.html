@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer's Portfolio</title>
+    <title>Krsxh Portfolio </title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -1019,7 +1019,116 @@ header .container {
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--text-color);
-    margin-bottom: 0.5rem;
+}
+
+/* Social Media Cards Section */
+.social-media-section {
+    background-color: var(--background);
+    position: relative;
+}
+
+.social-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.social-card {
+    width: 280px;
+    height: 180px;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    cursor: pointer;
+}
+
+.social-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px var(--shadow-color-dark);
+}
+
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+    z-index: 1;
+}
+
+.social-card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.social-card i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.social-card p {
+    font-size: 1.4rem;
+    opacity: 0.9;
+}
+
+/* YouTube Card */
+.youtube-card {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: white;
+}
+
+.youtube-card:hover i {
+    transform: scale(1.2);
+}
+
+/* YouTube 2nd Card */
+.youtube2-card {
+    background: linear-gradient(135deg, #FF0000, #8B0000);
+    color: white;
+}
+
+.youtube2-card:hover i {
+    transform: scale(1.2);
+}
+
+/* Instagram Card */
+.instagram-card {
+    background: linear-gradient(135deg, #E1306C, #833AB4);
+    color: white;
+}
+
+.instagram-card:hover i {
+    transform: scale(1.2);
+}
+
+/* Telegram Card */
+.telegram-card {
+    background: linear-gradient(135deg, #0088cc, #00acee);
+    color: white;
+}
+
+.telegram-card:hover i {
+    transform: scale(1.2);
 }
 
 /* Contact Section */
@@ -1338,6 +1447,10 @@ body.scrolled .scroll-top {
     .skills {
         gap: 3rem;
     }
+    
+    .social-cards {
+        gap: 2rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1404,6 +1517,16 @@ body.scrolled .scroll-top {
     
     .contact-form {
         padding: 3rem 2rem;
+    }
+    
+    .social-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-card {
+        width: 100%;
+        max-width: 320px;
     }
 }
 
@@ -1712,6 +1835,7 @@ body.scrolled .scroll-top {
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#social">Social</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="burger">
@@ -1770,15 +1894,14 @@ body.scrolled .scroll-top {
                             <h3>More About Me</h3>
                             <ul class="card-details">
                                 <li><i class="fas fa-pen-nib"></i><span>Content Creator</span></li>
-<li><i class="fas fa-chart-line"></i><span>Social Media Management</span></li>
-<li><i class="fas fa-code"></i><span>Web Development</span></li>
-<li><i class="fas fa-laptop-code"></i><span>Programming</span></li>
-<li><i class="fas fa-gamepad"></i><span>Gaming</span></li>
-<li><i class="fas fa-video"></i><span>Video Editing</span></li>
-<li><i class="fas fa-camera"></i><span>Photography</span></li>
-<li><i class="fas fa-bullhorn"></i><span>Digital Marketing</span></li>
-<li><i class="fas fa-search"></i><span>SEO Optimization</span></li>
-<li><i class="fas fa-paint-brush"></i><span>UI/UX Design</span></li>
+                                <li><i class="fas fa-shield-alt"></i><span>Ethical Hacking</span></li>
+                                <li><i class="fas fa-code"></i><span>Web Development</span></li>
+                                <li><i class="fas fa-laptop-code"></i><span>Programming</span></li>
+                                <li><i class="fas fa-gamepad"></i><span>Gaming</span></li>
+                                <li><i class="fas fa-credit-card"></i><span>Carding</span></li>
+                                <li><i class="fas fa-camera"></i><span>Photography</span></li>
+                                <li><i class="fas fa-flag"></i><span>Banner</span></li>
+                                <li><i class="fas fa-paint-brush"></i><span>UI/UX Design</span></li>
                             </ul>
                         </div>
                     </div>
@@ -1792,7 +1915,7 @@ body.scrolled .scroll-top {
         <h2 class="section-title">My Skills</h2>
         <div class="skills-content">
             <div class="skills">
-                <!-- Existing skills -->
+                <!-- Updated skills -->
                 <div class="skill-item" data-percent="75">
                     <div class="skill-progress">
                         <div class="progress-ring-wrapper">
@@ -1824,72 +1947,6 @@ body.scrolled .scroll-top {
                     </div>
                     <p class="skill-name">CSS</p>
                     <span class="skill-percent">70%</span>
-                </div>
-                <div class="skill-item" data-percent="60">
-                    <div class="skill-progress">
-                        <div class="progress-ring-wrapper">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle-bg" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
-                                <circle class="progress-ring-circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314" stroke-dashoffset="314"/>
-                            </svg>
-                            <div class="rotating-line"></div>
-                            <div class="skill-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="skill-name">Responsive Design</p>
-                    <span class="skill-percent">60%</span>
-                </div>
-                <div class="skill-item" data-percent="65">
-                    <div class="skill-progress">
-                        <div class="progress-ring-wrapper">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle-bg" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
-                                <circle class="progress-ring-circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314" stroke-dashoffset="314"/>
-                            </svg>
-                            <div class="rotating-line"></div>
-                            <div class="skill-icon">
-                                <i class="fas fa-bug"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="skill-name">Bug Fixing</p>
-                    <span class="skill-percent">65%</span>
-                </div>
-                
-                <!-- New skills -->
-                <div class="skill-item" data-percent="50">
-                    <div class="skill-progress">
-                        <div class="progress-ring-wrapper">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle-bg" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
-                                <circle class="progress-ring-circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314" stroke-dashoffset="314"/>
-                            </svg>
-                            <div class="rotating-line"></div>
-                            <div class="skill-icon">
-                                <i class="fab fa-python"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="skill-name">Python</p>
-                    <span class="skill-percent">50%</span>
-                </div>
-                <div class="skill-item" data-percent="25">
-                    <div class="skill-progress">
-                        <div class="progress-ring-wrapper">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle-bg" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
-                                <circle class="progress-ring-circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314" stroke-dashoffset="314"/>
-                            </svg>
-                            <div class="rotating-line"></div>
-                            <div class="skill-icon">
-                                <i class="fab fa-php"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="skill-name">PHP</p>
-                    <span class="skill-percent">25%</span>
                 </div>
                 <div class="skill-item" data-percent="55">
                     <div class="skill-progress">
@@ -1923,7 +1980,7 @@ body.scrolled .scroll-top {
                     <p class="skill-name">React</p>
                     <span class="skill-percent">40%</span>
                 </div>
-                <div class="skill-item" data-percent="45">
+                <div class="skill-item" data-percent="50">
                     <div class="skill-progress">
                         <div class="progress-ring-wrapper">
                             <svg class="progress-ring" width="120" height="120">
@@ -1932,33 +1989,54 @@ body.scrolled .scroll-top {
                             </svg>
                             <div class="rotating-line"></div>
                             <div class="skill-icon">
-                                <i class="fab fa-git-alt"></i>
+                                <i class="fab fa-python"></i>
                             </div>
                         </div>
                     </div>
-                    <p class="skill-name">Git</p>
-                    <span class="skill-percent">45%</span>
-                </div>
-                <div class="skill-item" data-percent="35">
-                    <div class="skill-progress">
-                        <div class="progress-ring-wrapper">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle-bg" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
-                                <circle class="progress-ring-circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314" stroke-dashoffset="314"/>
-                            </svg>
-                            <div class="rotating-line"></div>
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="skill-name">MySQL</p>
-                    <span class="skill-percent">35%</span>
+                    <p class="skill-name">Python</p>
+                    <span class="skill-percent">50%</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+    <!-- New Social Media Cards Section -->
+    <section id="social" class="social-media-section">
+        <div class="container">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="social-cards">
+                <a href="https://www.youtube.com/@TechByKrsxh" target="_blank" class="social-card youtube-card">
+                    <div class="social-card-content">
+                        <i class="fab fa-youtube"></i>
+                        <h3>YouTube</h3>
+                        <p>Check out my main YouTube channel</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@KrsxhYT" target="_blank" class="social-card youtube2-card">
+                    <div class="social-card-content">
+                        <i class="fab fa-youtube"></i>
+                        <h3>YouTube 2nd</h3>
+                        <p>My secondary YouTube channel</p>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/thekrsxh" target="_blank" class="social-card instagram-card">
+                    <div class="social-card-content">
+                        <i class="fab fa-instagram"></i>
+                        <h3>Instagram</h3>
+                        <p>Follow me on Instagram</p>
+                    </div>
+                </a>
+                <a href="https://t.me/KrsxhNvrDie" target="_blank" class="social-card telegram-card">
+                    <div class="social-card-content">
+                        <i class="fab fa-telegram"></i>
+                        <h3>Telegram</h3>
+                        <p>Join my Telegram channel</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <section id="contact" class="contact">
         <div class="container">
@@ -1993,15 +2071,14 @@ body.scrolled .scroll-top {
                     </div>
                     
                     <div class="contact-alternatives">
-                        <a href="mailto:your.email@example.com" class="email-link">AlonexKrishna@gmail.com</a>
+                        <a href="mailto:AlonexKrishna@gmail.com" class="email-link">AlonexKrishna@gmail.com</a>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/alonekrsxh" class="social-icon" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://t.me/krsxh" class="social-icon" target="_blank">
-  <i class="fab fa-telegram"></i>
-</a>
+                            <a href="https://www.instagram.com/thekrsxh" class="social-icon" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://t.me/krsxh" class="social-icon" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2028,13 +2105,12 @@ body.scrolled .scroll-top {
             <div class="footer-content">
                 <p>&copy; 2025 Krsxh Developer. All Rights Reserved.</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/alonekrsxh" class="social-icon" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://t.me/krsxh" class="social-icon" target="_blank">
-  <i class="fab fa-telegram"></i>
-</a>
+                    <a href="https://www.instagram.com/thekrsxh" class="social-icon" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/krsxh" class="social-icon" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -2302,4 +2378,4 @@ window.addEventListener('load', () => {
 window.addEventListener('scroll', handleSkillsInView); 
 </script>
 </body>
-</html> 
+</html>
