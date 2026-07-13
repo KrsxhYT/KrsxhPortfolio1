@@ -9,47 +9,39 @@
     <style>
     	/* Variables */
 :root {
-    /* Modern Color Palette */
     --primary-color: #6366f1;
     --primary-dark: #4f46e5;
     --secondary-color: #ec4899;
     --accent-color: #8b5cf6;
     --success-color: #10b981;
-    
-    /* Text Colors */
+
     --text-color: #1e293b;
     --text-light: #64748b;
     --text-dark: #0f172a;
-    
-    /* Background Colors */
+
     --bg-color: #f8fafc;
     --bg-dark: #0f172a;
     --bg-light: #ffffff;
     --card-bg: #ffffff;
-    
-    /* Effects */
+
     --shadow-color: rgba(51, 65, 85, 0.1);
     --shadow-color-dark: rgba(15, 23, 42, 0.3);
-    
-    /* Gradients */
+
     --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6);
     --gradient-secondary: linear-gradient(135deg, #8b5cf6, #ec4899);
     --gradient-success: linear-gradient(135deg, #10b981, #6366f1);
     --gradient-accent: linear-gradient(135deg, #ec4899, #f43f5e);
-    
-    /* Other Properties */
+
     --transition: all 0.3s ease;
     --border-radius: 10px;
     --border-radius-lg: 20px;
-    
-    /* Light theme default */
+
     --background: var(--bg-light);
     --foreground: var(--text-color);
     --card-background: var(--card-bg);
     --header-bg: var(--bg-light);
 }
 
-/* Dark Theme */
 .dark-theme {
     --text-color: #f1f5f9;
     --text-light: #cbd5e1;
@@ -58,14 +50,13 @@
     --bg-light: #1e293b;
     --card-bg: #334155;
     --shadow-color: rgba(0, 0, 0, 0.3);
-    
+
     --background: var(--bg-dark);
     --foreground: var(--text-color);
     --card-background: var(--card-bg);
     --header-bg: var(--bg-dark);
 }
 
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -112,7 +103,7 @@ ul {
 .section-title {
     text-align: center;
     margin-bottom: 5rem;
-    font-size: 3.6rem;
+    font-size: clamp(2.6rem, 4vw + 1rem, 3.6rem);
     position: relative;
     padding-bottom: 1.5rem;
     font-weight: 700;
@@ -145,6 +136,12 @@ section {
     padding: 10rem 0;
     position: relative;
     overflow: hidden;
+}
+
+@media screen and (max-width: 576px) {
+    section {
+        padding: 7rem 0;
+    }
 }
 
 /* Theme Switch */
@@ -243,7 +240,7 @@ header .container {
 }
 
 .logo {
-    font-size: 2.8rem;
+    font-size: clamp(2.2rem, 2vw + 1.5rem, 2.8rem);
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -301,24 +298,27 @@ header .container {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     background-color: var(--background);
     overflow: hidden;
+    padding: 10rem 0 6rem;
 }
 
 .hero-content {
     text-align: center;
     max-width: 80rem;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 2;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(8px);
-    padding: 3rem;
+    padding: clamp(2rem, 4vw, 3rem);
     border-radius: var(--border-radius);
     box-shadow: 0 6px 24px var(--shadow-color);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -328,7 +328,6 @@ header .container {
     background: rgba(15, 23, 42, 0.3);
 }
 
-/* Hero Text Animation Container */
 .animated-text {
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -336,9 +335,8 @@ header .container {
     width: 100%;
 }
 
-/* Main heading animation - typewriter effect with gradient */
 .hero-title {
-    font-size: 6rem;
+    font-size: clamp(3.4rem, 6vw + 1rem, 6rem);
     margin-bottom: 1.5rem;
     color: transparent;
     background: var(--gradient-primary);
@@ -351,13 +349,13 @@ header .container {
     display: inline-block;
     overflow: visible;
     width: auto;
+    max-width: 100%;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.08);
-    animation: textFocus 0.5s ease-in forwards, 
+    animation: textFocus 0.5s ease-in forwards,
                float 6s ease-in-out 1s infinite,
                glowText 4s ease-in-out 1s infinite alternate;
 }
 
-/* Text focus-in animation */
 @keyframes textFocus {
     0% {
         filter: blur(12px);
@@ -371,7 +369,6 @@ header .container {
     }
 }
 
-/* Text glow animation */
 @keyframes glowText {
     0% {
         text-shadow: 0 0 5px rgba(99, 102, 241, 0.1);
@@ -384,9 +381,8 @@ header .container {
     }
 }
 
-/* Subtitle animation - split letters fade in */
 .hero-subtitle {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 2.5vw + 1rem, 2.8rem);
     margin-bottom: 2rem;
     color: var(--accent-color);
     font-weight: 600;
@@ -413,9 +409,8 @@ header .container {
     }
 }
 
-/* Description animation - text revealing with highlight */
 .hero-description {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 1vw + 1.1rem, 1.8rem);
     margin-bottom: 2.5rem;
     color: var(--text-light);
     line-height: 1.5;
@@ -444,7 +439,6 @@ header .container {
     }
 }
 
-/* Float animation for heading */
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -499,33 +493,20 @@ header .container {
 }
 
 @keyframes shape-move-1 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        transform: translate(50px, 30px) scale(1.2);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 30px) scale(1.2); }
 }
 
 @keyframes shape-move-2 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        transform: translate(-30px, -50px) scale(1.1);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-30px, -50px) scale(1.1); }
 }
 
 @keyframes shape-move-3 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        transform: translate(20px, -20px) scale(1.3);
-    }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20px, -20px) scale(1.3); }
 }
 
-/* Enhanced Button Styles */
 .btn {
     display: inline-block;
     padding: 1.5rem 3.5rem;
@@ -578,33 +559,6 @@ header .container {
     box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
 }
 
-.btn-glow {
-    background: var(--gradient-accent);
-    color: white;
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
-    animation: glowing 1.5s infinite alternate;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-    padding: 1.2rem 3rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@keyframes glowing {
-    0% {
-        box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
-    }
-    100% {
-        box-shadow: 0 0 25px rgba(236, 72, 153, 0.8);
-    }
-}
-
 .scroll-indicator {
     position: absolute;
     bottom: 3rem;
@@ -636,14 +590,8 @@ header .container {
 }
 
 @keyframes wheel-animation {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(2rem);
-        opacity: 0;
-    }
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(2rem); opacity: 0; }
 }
 
 .scroll-arrow {
@@ -657,12 +605,8 @@ header .container {
 }
 
 @keyframes arrow-animation {
-    0%, 100% {
-        transform: rotate(45deg) translate(-5px, -5px);
-    }
-    50% {
-        transform: rotate(45deg) translate(0, 0);
-    }
+    0%, 100% { transform: rotate(45deg) translate(-5px, -5px); }
+    50% { transform: rotate(45deg) translate(0, 0); }
 }
 
 /* About Section */
@@ -676,10 +620,12 @@ header .container {
     justify-content: space-between;
     align-items: center;
     gap: 6rem;
+    flex-wrap: wrap;
 }
 
 .about-text {
-    flex: 1;
+    flex: 1 1 300px;
+    min-width: 280px;
     transform: translateX(-30px);
     opacity: 0;
     transition: all 0.6s ease;
@@ -696,9 +642,11 @@ header .container {
     font-size: 1.7rem;
 }
 
-/* Profile Card with 3D Flip effect */
 .profile-card {
-    flex: 1;
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 420px;
+    margin: 0 auto;
     perspective: 1000px;
     transform: translateX(30px);
     opacity: 0;
@@ -747,11 +695,12 @@ header .container {
     color: white;
     transform: rotateY(180deg);
     box-shadow: 0 15px 35px var(--shadow-color);
+    overflow-y: auto;
 }
 
 .photo-container {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid var(--primary-color);
@@ -768,9 +717,10 @@ header .container {
 }
 
 .card-front h3 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
     color: var(--text-color);
+    text-align: center;
 }
 
 .card-front p {
@@ -779,9 +729,10 @@ header .container {
 }
 
 .card-back h3 {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .card-details {
@@ -791,7 +742,7 @@ header .container {
 .card-details li {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     transition: all 0.3s ease;
 }
 
@@ -800,22 +751,22 @@ header .container {
 }
 
 .card-details i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-right: 1.5rem;
+    min-width: 2rem;
 }
 
 .card-details span {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
-/* Skills Section */
+/* Skills Section (unchanged) */
 .skills-section {
     background-color: var(--bg-light);
     position: relative;
 }
 
-/* Fix for dark mode skills section */
 .dark-theme .skills-section {
     background-color: var(--bg-dark);
 }
@@ -868,17 +819,7 @@ header .container {
     stroke-linecap: round;
     stroke: var(--primary-color);
     stroke-dasharray: 314;
-    stroke-dashoffset: 314; /* Start at full offset (empty) */
-}
-
-/* Animation for the progress circle */
-@keyframes rotateProgress {
-    from {
-        transform: rotate(-90deg);
-    }
-    to {
-        transform: rotate(270deg);
-    }
+    stroke-dashoffset: 314;
 }
 
 .skill-item.animate .progress-ring-circle {
@@ -886,15 +827,10 @@ header .container {
 }
 
 @keyframes fillProgress {
-    from {
-        stroke-dashoffset: 314;
-    }
-    to {
-        stroke-dashoffset: var(--target-offset);
-    }
+    from { stroke-dashoffset: 314; }
+    to { stroke-dashoffset: var(--target-offset); }
 }
 
-/* Skill line rotation */
 .progress-ring-wrapper {
     position: relative;
     width: 120px;
@@ -912,8 +848,6 @@ header .container {
     animation: continuousRotation 3s linear infinite;
 }
 
-/* Removing the stopped class to ensure continuous rotation */
-
 .rotating-line::before {
     content: '';
     position: absolute;
@@ -928,41 +862,19 @@ header .container {
 }
 
 @keyframes continuousRotation {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Glowing effect for the rotating line in dark mode */
 .dark-theme .rotating-line::before {
     background-color: var(--primary-color);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
 }
 
-/* Progress ring animation */
-.progress-ring-circle {
-    transition: stroke-dashoffset 2.5s ease;
-    transform-origin: center;
-    stroke-linecap: round;
-    stroke: var(--primary-color);
-    stroke-dasharray: 314;
-    stroke-dashoffset: 314; /* Start at full offset (empty) */
-}
-
-/* Make skill items flash subtly to draw attention */
 @keyframes pulseSkill {
-    0% {
-        box-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-    }
-    100% {
-        box-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
-    }
+    0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+    100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
 }
 
 .dark-theme .skill-item {
@@ -983,7 +895,6 @@ header .container {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Highlight the percentage with a gradient glow */
 .skill-percent {
     font-size: 1.4rem;
     font-weight: 600;
@@ -1021,7 +932,7 @@ header .container {
     color: var(--text-color);
 }
 
-/* Social Media Cards Section */
+/* Social Media Section — Telegram only */
 .social-media-section {
     background-color: var(--background);
     position: relative;
@@ -1029,21 +940,19 @@ header .container {
 
 .social-cards {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
     margin-top: 4rem;
 }
 
 .social-card {
-    width: 280px;
-    height: 180px;
+    width: 100%;
+    max-width: 360px;
+    padding: 3rem 2rem;
     border-radius: var(--border-radius-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -1053,7 +962,7 @@ header .container {
 }
 
 .social-card:hover {
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: 0 15px 40px var(--shadow-color-dark);
 }
 
@@ -1075,60 +984,29 @@ header .container {
 }
 
 .social-card i {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
 }
 
 .social-card h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .social-card p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     opacity: 0.9;
 }
 
-/* YouTube Card */
-.youtube-card {
-    background: linear-gradient(135deg, #FF0000, #CC0000);
-    color: white;
-}
-
-.youtube-card:hover i {
-    transform: scale(1.2);
-}
-
-/* YouTube 2nd Card */
-.youtube2-card {
-    background: linear-gradient(135deg, #FF0000, #8B0000);
-    color: white;
-}
-
-.youtube2-card:hover i {
-    transform: scale(1.2);
-}
-
-/* Instagram Card */
-.instagram-card {
-    background: linear-gradient(135deg, #E1306C, #833AB4);
-    color: white;
-}
-
-.instagram-card:hover i {
-    transform: scale(1.2);
-}
-
-/* Telegram Card */
 .telegram-card {
     background: linear-gradient(135deg, #0088cc, #00acee);
     color: white;
 }
 
 .telegram-card:hover i {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(-8deg);
 }
 
 /* Contact Section */
@@ -1157,12 +1035,11 @@ header .container {
     color: var(--text-light);
 }
 
-/* Glassmorphism Contact Form */
 .contact-form {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
-    padding: 4rem;
+    padding: clamp(2.5rem, 4vw, 4rem);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.18);
     margin-bottom: 4rem;
@@ -1214,7 +1091,6 @@ header .container {
     opacity: 1;
 }
 
-/* No need to move the label on focus since it's already positioned above */
 .form-group input:focus ~ label,
 .form-group input:valid ~ label,
 .form-group textarea:focus ~ label,
@@ -1245,11 +1121,12 @@ header .container {
     display: inline-block;
     margin-bottom: 3rem;
     color: var(--primary-color);
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 2vw + 0.8rem, 2.2rem);
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    word-break: break-word;
 }
 
 .email-link:hover {
@@ -1342,6 +1219,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 footer p {
@@ -1394,7 +1273,6 @@ footer .social-icon:hover {
     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
 }
 
-/* Show scroll top button when scrolled down */
 body.scrolled .scroll-top {
     opacity: 1;
     visibility: visible;
@@ -1403,65 +1281,33 @@ body.scrolled .scroll-top {
 
 /* Media Queries */
 @media screen and (max-width: 1200px) {
-    html {
-        font-size: 60%;
-    }
-    
-    .hero-title {
-        font-size: 5.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 2.6rem;
-    }
+    html { font-size: 60%; }
 }
 
 @media screen and (max-width: 992px) {
-    html {
-        font-size: 58%;
-    }
-    
-    .hero-title {
-        font-size: 5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 2.4rem;
-    }
-    
-    .hero-description {
-        font-size: 1.7rem;
-    }
-    
-    .about-content, 
+    html { font-size: 58%; }
+
+    .about-content,
     .footer-content {
         flex-direction: column;
         gap: 4rem;
+        text-align: center;
     }
-    
-    .profile-card, 
+
+    .profile-card,
     .about-text {
         width: 100%;
+        max-width: 420px;
     }
-    
-    .skills {
-        gap: 3rem;
-    }
-    
-    .social-cards {
-        gap: 2rem;
-    }
+
+    .skills { gap: 3rem; }
 }
 
 @media screen and (max-width: 768px) {
-    html {
-        font-size: 56%;
-    }
-    
-    .burger {
-        display: block;
-    }
-    
+    html { font-size: 56%; }
+
+    .burger { display: block; }
+
     .nav-links {
         position: fixed;
         top: 7rem;
@@ -1476,98 +1322,70 @@ body.scrolled .scroll-top {
         transition: height 0.4s ease;
         box-shadow: 0 5px 10px var(--shadow-color);
     }
-    
-    .nav-links.active {
-        height: 30rem;
-    }
-    
+
+    .nav-links.active { height: 30rem; }
+
     .nav-links li {
         margin: 0;
         opacity: 0;
         transform: translateY(-20px);
         transition: all 0.3s ease;
     }
-    
+
     .nav-links.active li {
         opacity: 1;
         transform: translateY(0);
     }
-    
-    .hero-title {
-        font-size: 4.2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 2.2rem;
-    }
-    
-    .hero-description {
-        font-size: 1.6rem;
-    }
-    
-    .about-content, 
-    .contact-content {
-        text-align: center;
-    }
-    
+
+    .about-content,
+    .contact-content { text-align: center; }
+
     .card-inner {
-        max-width: 350px;
+        max-width: 340px;
         margin: 0 auto;
     }
-    
-    .contact-form {
-        padding: 3rem 2rem;
-    }
-    
-    .social-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .social-card {
-        width: 100%;
-        max-width: 320px;
-    }
+
+    .contact-form { padding: 3rem 2rem; }
+
+    .social-card { max-width: 300px; }
 }
 
 @media screen and (max-width: 576px) {
-    html {
-        font-size: 54%;
-    }
-    
-    .hero-title {
-        font-size: 3.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.8rem;
-    }
-    
-    .hero-description {
-        font-size: 1.5rem;
-    }
-    
-    .hero-shapes {
-        opacity: 0.5;
-    }
-    
-    .section-title {
-        font-size: 3rem;
-    }
-    
-    .skills {
-        gap: 2rem;
-    }
-    
-    .skill-item {
-        transform: scale(0.9);
-    }
-    
+    html { font-size: 52%; }
+
+    .hero { padding: 9rem 0 5rem; }
+
+    .hero-shapes { opacity: 0.5; }
+
+    .skills { gap: 2rem; }
+
+    .skill-item { transform: scale(0.85); }
+
     .footer-content {
         flex-direction: column;
         gap: 2rem;
         text-align: center;
     }
+
+    .theme-switch-wrapper {
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+
+    .card-inner { height: 380px; }
+
+    .photo-container {
+        width: 14rem;
+        height: 14rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    html { font-size: 48%; }
+
+    .container { width: 94%; padding: 0 1.2rem; }
+
+    .card-inner { height: 360px; }
 }
 
 /* Modal Styles */
@@ -1620,9 +1438,7 @@ body.scrolled .scroll-top {
     transform: rotate(90deg);
 }
 
-.success-message {
-    text-align: center;
-}
+.success-message { text-align: center; }
 
 .success-message i {
     font-size: 5rem;
@@ -1656,87 +1472,16 @@ body.scrolled .scroll-top {
 }
 
 @keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scaleIn {
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-/* Submit button styling */
-.submit-button-container {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.submit-btn {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: 0 5px 25px rgba(99, 102, 241, 0.6);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 1.5rem 3.5rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    text-transform: uppercase;
-    animation: button-pulse 2s infinite;
-}
-
-@keyframes button-pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 5px 25px rgba(99, 102, 241, 0.6);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 5px 35px rgba(99, 102, 241, 0.9);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 5px 25px rgba(99, 102, 241, 0.6);
-    }
-}
-
-.submit-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.8);
-    background: var(--gradient-secondary);
-    animation-play-state: paused;
-}
-
-.submit-btn:active {
-    transform: translateY(-2px);
-}
-
-.dark-theme .submit-btn {
-    background: var(--gradient-secondary);
-    box-shadow: 0 5px 25px rgba(236, 72, 153, 0.6);
-}
-
-.dark-theme .submit-btn:hover {
-    background: var(--gradient-primary);
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 /* Standalone Submit Button */
@@ -1747,10 +1492,10 @@ body.scrolled .scroll-top {
 
 .standalone-btn {
     display: inline-block;
-    padding: 20px 40px;
+    padding: 1.8rem 3.6rem;
     background: linear-gradient(45deg, #ff416c, #ff4b2b);
     color: white;
-    font-size: 20px;
+    font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
     border: none;
@@ -1761,24 +1506,21 @@ body.scrolled .scroll-top {
     position: relative;
     overflow: hidden;
     animation: button-attention 2s infinite;
+    max-width: 100%;
 }
 
 @keyframes button-attention {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .standalone-btn:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
     box-shadow: 0 15px 40px rgba(255, 65, 108, 0.7);
 }
 
 .standalone-btn:active {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
 }
 
@@ -1796,14 +1538,8 @@ body.scrolled .scroll-top {
 }
 
 @keyframes shine {
-    0% {
-        left: -50%;
-        top: -50%;
-    }
-    100% {
-        left: 150%;
-        top: 150%;
-    }
+    0% { left: -50%; top: -50%; }
+    100% { left: 150%; top: 150%; }
 }
 
 .dark-theme .standalone-btn {
@@ -1813,7 +1549,7 @@ body.scrolled .scroll-top {
 
 .dark-theme .standalone-btn:hover {
     box-shadow: 0 15px 40px rgba(139, 92, 246, 0.7);
-} 
+}
 </style>
 </head>
 <body>
@@ -1915,7 +1651,6 @@ body.scrolled .scroll-top {
         <h2 class="section-title">My Skills</h2>
         <div class="skills-content">
             <div class="skills">
-                <!-- Updated skills -->
                 <div class="skill-item" data-percent="75">
                     <div class="skill-progress">
                         <div class="progress-ring-wrapper">
@@ -2001,32 +1736,11 @@ body.scrolled .scroll-top {
     </div>
 </section>
 
-    <!-- New Social Media Cards Section -->
+    <!-- Social Section — Telegram only -->
     <section id="social" class="social-media-section">
         <div class="container">
             <h2 class="section-title">Connect With Me</h2>
             <div class="social-cards">
-                <a href="https://www.youtube.com/@TechByKrsxh" target="_blank" class="social-card youtube-card">
-                    <div class="social-card-content">
-                        <i class="fab fa-youtube"></i>
-                        <h3>YouTube</h3>
-                        <p>Check out my main YouTube channel</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/@KrsxhYT" target="_blank" class="social-card youtube2-card">
-                    <div class="social-card-content">
-                        <i class="fab fa-youtube"></i>
-                        <h3>YouTube 2nd</h3>
-                        <p>My secondary YouTube channel</p>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/thekrsxh" target="_blank" class="social-card instagram-card">
-                    <div class="social-card-content">
-                        <i class="fab fa-instagram"></i>
-                        <h3>Instagram</h3>
-                        <p>Follow me on Instagram</p>
-                    </div>
-                </a>
                 <a href="https://t.me/KrsxhNvrDie" target="_blank" class="social-card telegram-card">
                     <div class="social-card-content">
                         <i class="fab fa-telegram"></i>
@@ -2044,7 +1758,7 @@ body.scrolled .scroll-top {
             <div class="contact-content">
                 <div class="contact-info">
                     <p>Feel free to reach out if you'd like to work together or just want to connect!</p>
-                    
+
                     <form id="contact-form" class="contact-form glass-morphism">
                         <div class="form-group">
                             <input type="text" id="name" name="name" required>
@@ -2062,14 +1776,13 @@ body.scrolled .scroll-top {
                             <span class="focus-border"></span>
                         </div>
                     </form>
-                    
-                    <!-- Standalone Submit Button -->
+
                     <div class="standalone-button-container">
                         <button onclick="document.getElementById('contact-form').submit();" class="standalone-btn">
                             SUBMIT MESSAGE
                         </button>
                     </div>
-                    
+
                     <div class="contact-alternatives">
                         <a href="mailto:AlonexKrishna@gmail.com" class="email-link">AlonexKrishna@gmail.com</a>
                         <div class="social-links">
@@ -2086,7 +1799,6 @@ body.scrolled .scroll-top {
         </div>
     </section>
 
-    <!-- Success Modal -->
     <div id="success-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -2121,7 +1833,6 @@ body.scrolled .scroll-top {
     </a>
 
     <script>
-// DOM Elements
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 const navLinksItems = document.querySelectorAll('.nav-links li');
@@ -2135,13 +1846,11 @@ const modal = document.getElementById('success-modal');
 const closeModal = document.querySelector('.close-modal');
 const modalCloseBtn = document.querySelector('.modal-close-btn');
 
-// Check for saved theme preference
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-theme');
     checkbox.checked = true;
 }
 
-// Dark Mode Toggle
 checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
         document.body.classList.add('dark-theme');
@@ -2152,12 +1861,8 @@ checkbox.addEventListener('change', () => {
     }
 });
 
-// Mobile Menu Toggle
 burger.addEventListener('click', () => {
-    // Toggle Nav
     navLinks.classList.toggle('active');
-    
-    // Close menu when a nav item is clicked
     navLinksItems.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -2165,30 +1870,26 @@ burger.addEventListener('click', () => {
     });
 });
 
-// Sticky Header
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
-    
-    // Add sticky class to header
+
     if (scrollPosition > 50) {
         header.classList.add('sticky');
     } else {
         header.classList.remove('sticky');
     }
-    
-    // Show scroll top button when scrolled down
+
     if (scrollPosition > 500) {
         document.body.classList.add('scrolled');
     } else {
         document.body.classList.remove('scrolled');
     }
-    
-    // Active menu items based on scroll position
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             navItems.forEach(item => {
                 item.classList.remove('active');
@@ -2198,27 +1899,25 @@ window.addEventListener('scroll', () => {
             });
         }
     });
-    
-    // Fade in elements when scrolled into view
+
     fadeElements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.3;
-        
+
         if (elementPosition < screenPosition) {
             element.classList.add('fade-in');
         }
     });
 });
 
-// Initialize active menu item
 function setActiveNavItem() {
     const scrollPosition = window.scrollY;
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             navItems.forEach(item => {
                 item.classList.remove('active');
@@ -2230,32 +1929,24 @@ function setActiveNavItem() {
     });
 }
 
-// Contact Form Submission
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form data
+
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
-        
-        // Here you would normally send the data to a server
-        // For now, we'll just simulate a successful submission
+
         console.log('Form submitted:', { name, email, message });
-        
-        // Show success modal
+
         showModal();
-        
-        // Reset form
         contactForm.reset();
     });
 }
 
-// Modal functions
 function showModal() {
     modal.classList.add('show');
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden';
 }
 
 function hideModal() {
@@ -2263,7 +1954,6 @@ function hideModal() {
     document.body.style.overflow = '';
 }
 
-// Close modal events
 if (closeModal) {
     closeModal.addEventListener('click', hideModal);
 }
@@ -2272,28 +1962,25 @@ if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', hideModal);
 }
 
-// Close modal when clicking outside
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
         hideModal();
     }
 });
 
-// Close modal with Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('show')) {
         hideModal();
     }
 });
 
-// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             window.scrollTo({
@@ -2304,78 +1991,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Skills Animation
 const skillItems = document.querySelectorAll('.skill-item');
-const circumference = 2 * Math.PI * 50; // 2πr where r=50
+const circumference = 2 * Math.PI * 50;
 
-// Initialize skill animations
 function initSkillAnimations() {
     skillItems.forEach(item => {
         const percent = parseInt(item.getAttribute('data-percent'));
         const circle = item.querySelector('.progress-ring-circle');
         const rotateLine = item.querySelector('.rotating-line');
-        
-        // Calculate the offset based on percentage
-        // The offset is calculated as: circumference - (percent / 100 * circumference)
+
         const offset = circumference - (percent / 100 * circumference);
-        
-        // Add custom property to be used in the CSS animation
         item.style.setProperty('--target-offset', offset);
-        
-        // Set the rotation animation duration based on percentage
-        // Higher percentage = longer animation
-        const duration = 2 + (percent / 100 * 3); // 2-5 seconds duration
+
+        const duration = 2 + (percent / 100 * 3);
         rotateLine.style.animationDuration = `${duration}s`;
-        
-        // Ensure the line uses continuous rotation animation
         rotateLine.style.animationName = 'continuousRotation';
     });
 }
 
-// Function to start progress ring animations when they come into view
 function handleSkillsInView() {
     const skillsSection = document.querySelector('.skills-section');
     if (!skillsSection) return;
-    
+
     const sectionPosition = skillsSection.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.2;
-    
+
     if (sectionPosition < screenPosition) {
         skillItems.forEach(item => {
             setTimeout(() => {
-                // Only add the animate class for the progress circle animation
                 item.classList.add('animate');
-            }, 300); // Small delay for better visual effect
+            }, 300);
         });
-        
-        // Remove the scroll event listener once triggered
+
         window.removeEventListener('scroll', handleSkillsInView);
     }
 }
 
-// Run on page load
 window.addEventListener('load', () => {
     setActiveNavItem();
-    
-    // Trigger fade-in for visible elements on page load
+
     fadeElements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.3;
-        
+
         if (elementPosition < screenPosition) {
             element.classList.add('fade-in');
         }
     });
-    
-    // Initialize skill animations
+
     initSkillAnimations();
-    
-    // Check if skills are in view on load
     handleSkillsInView();
 });
 
-// Add scroll event for skills animation
-window.addEventListener('scroll', handleSkillsInView); 
+window.addEventListener('scroll', handleSkillsInView);
 </script>
 </body>
 </html>
